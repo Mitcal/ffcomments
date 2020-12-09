@@ -29,16 +29,13 @@
                                         {{ trans('cruds.comment.fields.page') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.contentPage.fields.excerpt') }}
-                                    </th>
-                                    <th>
                                         {{ trans('cruds.comment.fields.author') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.user.fields.email') }}
+                                        {{ trans('cruds.comment.fields.author_email') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.comment.fields.author_email') }}
+                                        {{ trans('cruds.user.fields.content') }}
                                     </th>
                                     <th>
                                         {{ trans('cruds.comment.fields.date_gmt') }}
@@ -61,16 +58,13 @@
                                             {{ $comment->page->title ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $comment->page->excerpt ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $comment->author->name ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $comment->author->email ?? '' }}
+                                            {{ $comment->author_name ?? '' }}
                                         </td>
                                         <td>
                                             {{ $comment->author_email ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $comment->content ?? '' }}
                                         </td>
                                         <td>
                                             {{ $comment->date_gmt ?? '' }}

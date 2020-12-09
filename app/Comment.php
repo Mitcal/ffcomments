@@ -30,8 +30,9 @@ class Comment extends Model
     protected $fillable = [
         'page_id',
         'author_id',
+        'author_name',
         'author_email',
-        'author_url',
+        // 'author_url',
         'author_ip',
         'date',
         'date_gmt',
@@ -41,6 +42,7 @@ class Comment extends Model
         'agent',
         'type',
         'approved_date',
+        'parent_id',
         'created_at',
         'updated_at',
         'deleted_at',

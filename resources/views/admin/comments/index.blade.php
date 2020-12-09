@@ -28,16 +28,16 @@
                         {{ trans('cruds.comment.fields.page') }}
                     </th>
                     <th>
-                        {{ trans('cruds.contentPage.fields.excerpt') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.comment.fields.author') }}
                     </th>
                     <th>
                         {{ trans('cruds.user.fields.email') }}
                     </th>
                     <th>
-                        {{ trans('cruds.comment.fields.author_email') }}
+                        {{ trans('cruds.comment.fields.content') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.comment.fields.parent') }}
                     </th>
                     <th>
                         {{ trans('cruds.comment.fields.date_gmt') }}
@@ -103,10 +103,10 @@
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
 { data: 'page_title', name: 'page.title' },
-{ data: 'page.excerpt', name: 'page.excerpt' },
 { data: 'author_name', name: 'author.name' },
-{ data: 'author.email', name: 'author.email' },
 { data: 'author_email', name: 'author_email' },
+{ data: 'content', name: 'content' },
+{ data: 'parent_id', name: 'parent_id' },
 { data: 'date_gmt', name: 'date_gmt' },
 { data: 'approved', name: 'approved' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }

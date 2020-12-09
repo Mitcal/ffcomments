@@ -89,5 +89,5 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
 Route::group(['namespace' => 'Frontend'], function () {
 	Route::get('/page/{page:slug}', 'ContentPageController@showDetail');
 	Route::post('/comment/save', 'CommentController@save');
-	Route::post('/reply/save', 'CommentController@replyStore');
+	// Route::post('/reply/save', 'CommentController@replyStore');
 });

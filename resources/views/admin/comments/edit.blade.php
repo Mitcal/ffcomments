@@ -39,6 +39,16 @@
                 <span class="help-block">{{ trans('cruds.comment.fields.author_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="author_name">{{ trans('cruds.comment.fields.author_name') }}</label>
+                <input class="form-control {{ $errors->has('author_name') ? 'is-invalid' : '' }}" type="text" name="author_name" id="author_name" value="{{ old('author_name', $comment->author_name) }}">
+                @if($errors->has('author_name'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('author_name') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.comment.fields.author_email_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="author_email">{{ trans('cruds.comment.fields.author_email') }}</label>
                 <input class="form-control {{ $errors->has('author_email') ? 'is-invalid' : '' }}" type="email" name="author_email" id="author_email" value="{{ old('author_email', $comment->author_email) }}">
                 @if($errors->has('author_email'))
@@ -97,6 +107,16 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.comment.fields.content_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="parent_id">{{ trans('cruds.comment.fields.parent') }}</label>
+                <input class="form-control {{ $errors->has('parent') ? 'is-invalid' : '' }}" type="number" name="parent_id" id="parent_id" value="{{ old('parent_id', $comment->parent_id) }}" step="1">
+                @if($errors->has('parent_id'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('parent_id') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.comment.fields.karma_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="karma">{{ trans('cruds.comment.fields.karma') }}</label>

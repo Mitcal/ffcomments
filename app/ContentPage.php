@@ -48,7 +48,10 @@ class ContentPage extends Model implements HasMedia
 
     public function pageComments()
     {
-        return $this->hasMany(Comment::class, 'page_id', 'id')->where('approved',1)->orderBy('date', 'desc');
+        return $this->hasMany(Comment::class, 'page_id', 'id')
+            ->where('parent_id',0)
+            ->where('approved',1)
+            ->orderBy('date', 'desc');
     }
 
     public function categories()
