@@ -5,11 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use \DateTimeInterface;
 
-class ContentPage extends Model
+class ContentPage extends Model implements HasMedia
 {
-    use SoftDeletes,  HasFactory;
+    use SoftDeletes, InteractsWithMedia, HasFactory;
 
     public $table = 'content_pages';
 
@@ -45,7 +48,7 @@ class ContentPage extends Model
 
     public function pageComments()
     {
-        return $this->hasMany(Comment::class, 'page_id', 'id')->where('parent_id',0)->where('approved',1);
+        return $this->hasMany(Comment::class, 'page_id', 'id')->where('approved',1);
     }
 
     public function categories()
