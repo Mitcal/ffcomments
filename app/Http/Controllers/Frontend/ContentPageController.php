@@ -20,11 +20,10 @@ class ContentPageController extends Controller
     use MediaUploadingTrait;
 
     public function index()
-    {
+    {	
         abort_if(Gate::denies('content_page_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $contentPages = ContentPage::with(['categories', 'tags', 'media'])->get();
-
         return view('frontend.contentPages.index', compact('contentPages'));
     }
 
@@ -97,6 +96,13 @@ class ContentPageController extends Controller
         $contentPage->load('categories', 'tags', 'pageComments');
 
         return view('frontend.contentPages.show', compact('contentPage'));
+    }
+	
+	 public function showDetail(ContentPage $contentPage)
+    {
+		$page_id = 1;
+		$page = ContentPage::findorFail($page_id)->first();
+         return view('frontend.contentPages.detail', compact('page'));
     }
 
     public function destroy(ContentPage $contentPage)
