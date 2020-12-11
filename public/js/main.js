@@ -70,12 +70,17 @@ $('button.sidebar-toggler').click(function () {
   })
   
 	$(".comment-reply-link").click(function(){
+    if ($(this).find('#comment-form').length > 0) return;
+
 		var comment_id = $(this).attr('data-comment-id');
 		  if($('.comment-respond-form-'+comment_id+' h2').length == 0) {
 			var comment_author =  $(this).attr('data-comment-author');
 			var html = '<h2 id="reply-title" class="comment-reply-title">Reply to '+comment_author+'<small><a rel="nofollow" class="cancel-comment-reply-link" data-comment-id="'+comment_id+'" href="javascript:void(0);">Cancel reply</a></small></h2>';
 			$('.comment-respond-form-'+comment_id).show();
-			$('.comment-respond-form-'+comment_id).prepend(html);
+      $('.comment-respond-form-'+comment_id).prepend(html);
+      var new_form = $('#comment-form').clone().appendTo('.comment-respond-form-'+comment_id);
+      new_form.find('.parent_id').val(comment_id);
+      new_form.find('.btn').val('Reply');
 		  }
 	});
 	

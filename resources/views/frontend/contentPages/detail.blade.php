@@ -20,7 +20,7 @@
 
                <div class="card-body">
 				<h5>Leave a comment</h5>
-                <form method="post" action="{{ url('comment/save') }}">
+                <form id="comment-form" method="post" action="{{ url('comment/save') }}">
                     @csrf
                     <div class="form-group">
 						<p>
@@ -36,6 +36,7 @@
 							<input type="text" name="author_email" class="form-control" value="{{ old('author_email') }}" required/>
 						</p>
                         <input type="hidden" name="page_id" value="{{ $page->id }}" />
+                        <input type="hidden" class="parent_id" name="parent_id" value="{{ old('parent_id', 0) }}" />
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="Add Comment" />
