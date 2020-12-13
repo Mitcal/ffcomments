@@ -98,10 +98,8 @@ class ContentPageController extends Controller
         return view('frontend.contentPages.show', compact('contentPage'));
     }
 	
-	 public function showDetail(ContentPage $contentPage)
+	 public function showDetail(ContentPage $page)
     {
-		$page_id = 1;
-		$page = ContentPage::findorFail($page_id)->first();
          return view('frontend.contentPages.detail', compact('page'));
     }
 
