@@ -1,0 +1,20 @@
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} (.*)/$
+#RewriteCond %{REQUEST_FILENAME}\.html -f
+#RewriteRule (.*)/$ $1.html [L]
+#
+#RewriteCond %{REQUEST_URI} (.*)/$
+#RewriteCond %{REQUEST_FILENAME}\.php -f
+#RewriteRule (.*)/$ $1.php [L]
+#
+#RewriteCond %{REQUEST_URI} (.*)/$
+#RewriteCond %{REQUEST_FILENAME}\.cgi -f
+#RewriteRule (.*)/$ $1.cgi [L]
+#
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME}\.html -f [OR]
+#RewriteCond %{REQUEST_FILENAME}\.php -f [OR]
+#RewriteCond %{REQUEST_FILENAME}\.cgi -f
+#RewriteRule .* %{REQUEST_FILENAME}/ [R=301,L]
+#</IfModule>
