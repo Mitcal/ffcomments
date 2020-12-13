@@ -67,7 +67,11 @@ class CommentsController extends Controller
     {
         $comment->update($request->all());
 
-        return redirect()->route('frontend.comments.index');
+        $exitCode = Artisan::call("page-cache:clear", [
+            "page/$comment->page_id"
+        ]);
+
+        return redirect()->route('admin.comments.index')->with('status', "cache cleared $exitCode");
     }
 
     public function show(Comment $comment)

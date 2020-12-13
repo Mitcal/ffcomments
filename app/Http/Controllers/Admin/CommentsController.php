@@ -12,6 +12,8 @@ use App\Http\Requests\UpdateCommentRequest;
 use App\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -118,7 +120,11 @@ class CommentsController extends Controller
     {
         $comment->update($request->all());
 
-        return redirect()->route('admin.comments.index');
+        $exitCode = Artisan::call("page-cache:clear", [
+            "page/$comment->page_id"
+        ]);
+
+        return redirect()->route('admin.comments.index')->with('status', "cache cleared $exitCode");
     }
 
     public function show(Comment $comment)
