@@ -87,7 +87,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
 });
 
 Route::group(['namespace' => 'Frontend'], function () {
-	Route::get('/page/{page:id}', 'ContentPageController@showDetail');
+	Route::get('/page/{page:id}', 'ContentPageController@showDetail')->middleware('page-cache');
 	Route::post('/comment/save', 'CommentController@save');
 	// Route::post('/reply/save', 'CommentController@replyStore');
 });
