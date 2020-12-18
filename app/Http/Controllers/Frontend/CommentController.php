@@ -27,6 +27,6 @@ class CommentController extends Controller
 
         $page->pageComments()->save($comment);
 
-        return back()->with('message', 'Thank you for submitting a comment. Your comment is pending approval.');
+        return redirect($request->url);//back()->with('message', 'Thank you for submitting a comment. Your comment is pending approval.');
     }
 }
